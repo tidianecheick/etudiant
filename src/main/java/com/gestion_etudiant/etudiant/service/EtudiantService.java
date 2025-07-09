@@ -38,7 +38,7 @@ public class EtudiantService {
 
     return list;
  }
- public Etudiant modifierEtudiant(Long id, Etudiant etudiant) {
+ public Etudiant modifierEtudiant(Long id, Etudiant e) {
    if (id == null) {
        System.out.println("ID non trouvé");
        return null;
@@ -46,12 +46,12 @@ public class EtudiantService {
 
    Optional<Etudiant> etudiantExistant = repository.findById(id);
    if (etudiantExistant.isPresent()) {
-       Etudiant e = etudiantExistant.get();
+    //    Etudiant e = etudiantExistant.get();
        // Mettre à jour les champs nécessaires
-       e.setNom(etudiant.getNom());
-       e.setPrenom(etudiant.getPrenom());
-       e.setEmail(etudiant.getEmail());
-       e.setMatricule(etudiant.getMatricule());
+       e.setNom(e.getNom());
+       e.setPrenom(e.getPrenom());
+       e.setEmail(e.getEmail());
+       e.setMatricule(e.getMatricule());
        // ... autres champs à mettre à jour
 
        return repository.save(e);
